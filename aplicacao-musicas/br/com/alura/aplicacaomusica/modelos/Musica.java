@@ -12,7 +12,7 @@ public class Musica extends Audio {
         this.genero = genero;
     }
 
-    public String getAlbum() {
+    public String getNomeAlbum() {
         return this.album.getTitulo();
     }
 

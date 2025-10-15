@@ -12,14 +12,35 @@ public class Principal {
 
         Musica lastOfAmericanGirls = new Musica();
         lastOfAmericanGirls.setTitulo("Last of the american girls");
-        lastOfAmericanGirls.setAlbum(centuryBreakdown);
+        lastOfAmericanGirls.setDuracaoEmMinutos(4);
         lastOfAmericanGirls.setGenero("Alterativa/indie");
+        lastOfAmericanGirls.setAlbum(centuryBreakdown);
         centuryBreakdown.adicionaMusica(lastOfAmericanGirls);
-
+        lastOfAmericanGirls.curtir();
+        lastOfAmericanGirls.curtir();
         for (int i = 0; i < 10; i++) {
             lastOfAmericanGirls.reproduzir();
         }
+        System.out.println("A música " + lastOfAmericanGirls.getTitulo() + " possui " + lastOfAmericanGirls.getCurtidas() + " curtidas e " + lastOfAmericanGirls.getTotalReproducoes() + " reproducoes.");
 
-        System.out.println("Reproduções da música: " + lastOfAmericanGirls.getTotalReproducoes());
+        Musica vivaLaGloria = new Musica();
+        vivaLaGloria.setTitulo("¡Viva La Gloria!");
+        vivaLaGloria.setDuracaoEmMinutos(3);
+        vivaLaGloria.setGenero("Rock");
+        vivaLaGloria.setAlbum(centuryBreakdown);
+        centuryBreakdown.adicionaMusica(vivaLaGloria);
+        vivaLaGloria.curtir();
+        vivaLaGloria.curtir();
+        for (int i = 0; i < 6; i++) {
+            vivaLaGloria.reproduzir();
+        }
+        System.out.println("A música " + vivaLaGloria.getTitulo() + " possui " + vivaLaGloria.getCurtidas() + " curtidas e " + lastOfAmericanGirls.getTotalReproducoes() + " reproduções.");
+
+        System.out.println("Ficha técnica do álbum " + centuryBreakdown.getTitulo() + ": ");
+        centuryBreakdown.imprimeFichaTecnica();
+        System.out.println("Músicas do álbum " + centuryBreakdown.getTitulo() + ": ");
+        centuryBreakdown.mostrarMusicas();
+        System.out.println("Reproduções da música " + lastOfAmericanGirls.getTitulo() + ": " + lastOfAmericanGirls.getTotalReproducoes());
+        System.out.println("Reproduções da música " + vivaLaGloria.getTitulo() + ": " + vivaLaGloria.getTotalReproducoes());
     }
 }
