@@ -2,15 +2,10 @@ package br.com.alura.aplicacaomusica.modelos;
 
 public class Musica extends Audio {
     private Album album;
-    private String artista;
     private String genero;
 
     public void setAlbum(Album album) {
         this.album = album;
-    }
-
-    public void setArtista(String artista) {
-        this.artista = artista;
     }
 
     public void setGenero(String genero) {
@@ -18,11 +13,7 @@ public class Musica extends Audio {
     }
 
     public String getAlbum() {
-        return this.album;
-    }
-
-    public String getArtista() {
-        return this.artista;
+        return this.album.getTitulo();
     }
 
     public String getGenero() {
