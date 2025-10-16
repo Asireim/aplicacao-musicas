@@ -1,13 +1,13 @@
 package br.com.alura.aplicacaomusica.modelos;
 
-public class Audio implements Classificavel {
+public class Audio implements Playable, Rateable {
     private String titulo;
     private int duracaoEmMinutos;
     private int totalReproducoes;
-    private int curtidas;
-    private double classificacao;
+    private double estrelas;
+    private int avaliacoes;
 
-    public void setTitulo(String titulo) {
+    protected void setTitulo(String titulo) {
         this.titulo = titulo;
     }
 
@@ -15,7 +15,7 @@ public class Audio implements Classificavel {
         return this.titulo;
     }
 
-    public void setDuracaoEmMinutos(int duracaoEmMinutos) {
+    protected void setDuracaoEmMinutos(int duracaoEmMinutos) {
         this.duracaoEmMinutos = duracaoEmMinutos;
     }
 
@@ -27,25 +27,22 @@ public class Audio implements Classificavel {
         return this.totalReproducoes;
     }
 
-    public int getCurtidas() {
-        return this.curtidas;
-    }
-
-    public double getClassificacao() {
-        return this.classificacao;
-    }
-
-    public void curtir() {
-        this.curtidas++;
-    }
-
-    public void reproduzir() {
-        this.totalReproducoes++;
+    @Override
+    public void reproduzir(int vezes) {
+        for (int i = 0; i < vezes; i++) {
+            this.totalReproducoes++;
+        }
     }
 
     @Override
-    public void classificar(double nota) {
-        this.classificacao += nota;
+    public void avaliar(double estrelas) {
+        this.avaliacoes++;
+        this.estrelas += estrelas;
     }
 
+    @Override
+    public void verificarAvaliacao() {
+        double avaliacao = (this.estrelas / this.avaliacoes);
+        System.out.printf("Avaliação: %.1f estrelas", avaliacao);
+    }
 }

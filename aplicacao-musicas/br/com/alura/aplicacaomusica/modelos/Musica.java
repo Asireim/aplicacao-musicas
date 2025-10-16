@@ -4,11 +4,11 @@ public class Musica extends Audio {
     private Album album;
     private String genero;
 
-    public void setAlbum(Album album) {
+    protected void setAlbum(Album album) {
         this.album = album;
     }
 
-    public void setGenero(String genero) {
+    protected void setGenero(String genero) {
         this.genero = genero;
     }
 
@@ -18,5 +18,16 @@ public class Musica extends Audio {
 
     public String getGenero() {
         return this.genero;
+    }
+
+    public void criarMusica(String nomeDaMusica, int duracaoEmMinutos, String genero, Album album) {
+        this.setTitulo(nomeDaMusica);
+        this.setDuracaoEmMinutos(duracaoEmMinutos);
+        this.setGenero(genero);
+        this.setAlbum(album);
+        album.adicionaMusica(this);
+        System.out.printf("""
+                        A música %s do album %s possui a duração total de %d minutos e pertence ao gênero %s.
+                        """, this.getTitulo(), this.getNomeAlbum(), this.getDuracaoEmMinutos(), this.getGenero());
     }
 }

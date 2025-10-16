@@ -2,50 +2,79 @@ package br.com.alura.aplicacaomusica.principal;
 
 import br.com.alura.aplicacaomusica.modelos.Album;
 import br.com.alura.aplicacaomusica.modelos.Musica;
+import br.com.alura.aplicacaomusica.modelos.Podcast;
 
 public class Principal {
+
     public static void main(String[] args) {
         Album centuryBreakdown = new Album();
-        centuryBreakdown.setTitulo("21st Century Breakdown");
-        centuryBreakdown.setArtista("Green Day");
-        centuryBreakdown.setAnoLancamento(2009);
+        centuryBreakdown.criarAlbum("21st Century Breakdown","Green Day",2009);
+        Album americanIdiot = new Album();
+        americanIdiot.criarAlbum("American Idiot", "Green Day", 2004);
 
         Musica lastOfAmericanGirls = new Musica();
-        lastOfAmericanGirls.setTitulo("Last of the american girls");
-        lastOfAmericanGirls.setDuracaoEmMinutos(4);
-        lastOfAmericanGirls.setGenero("Alterativa/indie");
-        lastOfAmericanGirls.setAlbum(centuryBreakdown);
-        centuryBreakdown.adicionaMusica(lastOfAmericanGirls);
-        lastOfAmericanGirls.curtir();
-        lastOfAmericanGirls.curtir();
-        for (int i = 0; i < 10; i++) {
-            lastOfAmericanGirls.reproduzir();
-        }
-        System.out.println("A música " + lastOfAmericanGirls.getTitulo() + " possui " + lastOfAmericanGirls.getCurtidas() + " curtidas e " + lastOfAmericanGirls.getTotalReproducoes() + " reproducoes.");
+        lastOfAmericanGirls.criarMusica("Last of the american girls", 4,"Alternativa/indie", centuryBreakdown);
+        lastOfAmericanGirls.reproduzir(6000);
 
         Musica vivaLaGloria = new Musica();
-        vivaLaGloria.setTitulo("¡Viva La Gloria!");
-        vivaLaGloria.setDuracaoEmMinutos(3);
-        vivaLaGloria.setGenero("Alterativa/indie");
-        vivaLaGloria.setAlbum(centuryBreakdown);
-        centuryBreakdown.adicionaMusica(vivaLaGloria);
-        vivaLaGloria.curtir();
-        vivaLaGloria.curtir();
-        for (int i = 0; i < 6; i++) {
-            vivaLaGloria.reproduzir();
-        }
-        System.out.println("A música " + vivaLaGloria.getTitulo() + " possui " + vivaLaGloria.getCurtidas() + " curtidas e " + vivaLaGloria.getTotalReproducoes() + " reproduções.");
+        vivaLaGloria.criarMusica("¡Viva La Gloria!",3,"Alternativa/indie", centuryBreakdown);
+        vivaLaGloria.reproduzir(9000);
 
         Musica lastNightOnEarth = new Musica();
-        lastNightOnEarth.setTitulo("Last Night On Earth");
-        lastNightOnEarth.setDuracaoEmMinutos(4);
-        lastNightOnEarth.setGenero("Pop rock");
+        lastNightOnEarth.criarMusica("Last Night On Earth", 4,"Pop rock",centuryBreakdown);
+        lastNightOnEarth.reproduzir(8599);
 
-        System.out.println("Ficha técnica do álbum " + centuryBreakdown.getTitulo() + ": ");
+        Musica knowYourEnemy = new Musica();
+        knowYourEnemy.criarMusica("Know Your Enemy",3,"Punk rock", centuryBreakdown);
+        knowYourEnemy.reproduzir(7834);
+
+        Musica twentyOneGuns = new Musica();
+        twentyOneGuns.criarMusica("21 Guns",5,"Alternativa/indie",centuryBreakdown);
+        twentyOneGuns.reproduzir(6453);
+
+        Musica eastJesusNowhere = new Musica();
+        eastJesusNowhere.criarMusica("East Jesus Nowhere",4,"Punk Rock",centuryBreakdown);
+        eastJesusNowhere.reproduzir(4567);
+
+        Musica musicaAmericanIdiot = new Musica();
+        musicaAmericanIdiot.criarMusica("America Idiot", 3,"Punk Rock", americanIdiot);
+        musicaAmericanIdiot.reproduzir(5657);
+
+        Musica holiday = new Musica();
+        holiday.criarMusica("Holiday", 4,"Punk Rock", americanIdiot);
+        holiday.reproduzir(4567);
+
+        Musica jesusOfSuburbia = new Musica();
+        jesusOfSuburbia.criarMusica("Jesus Of Suburbia", 9, "Punk Rock", americanIdiot);
+        jesusOfSuburbia.reproduzir(6789);
+
+        Musica whatsername = new Musica();
+        whatsername.criarMusica("Whatsername", 4,"Pop punk", americanIdiot);
+        whatsername.reproduzir(6789);
+
+        Musica boulevardBrokenDreams = new Musica();
+        boulevardBrokenDreams.criarMusica("Boulevard of Broken Dreams", 4, "Hard Rock", americanIdiot);
+        boulevardBrokenDreams.reproduzir(4546);
+
+        Musica wakeMeUpSeptemberEnds = new Musica();
+        wakeMeUpSeptemberEnds.criarMusica("Wake Me Up When September Ends", 5, "Alternativa/indie", americanIdiot);
+        wakeMeUpSeptemberEnds.reproduzir(3456);
+
         centuryBreakdown.imprimeFichaTecnica();
-        System.out.println("Músicas do álbum " + centuryBreakdown.getTitulo() + ": ");
         centuryBreakdown.mostrarMusicas();
-        System.out.println("Reproduções da música " + lastOfAmericanGirls.getTitulo() + ": " + lastOfAmericanGirls.getTotalReproducoes());
-        System.out.println("Reproduções da música " + vivaLaGloria.getTitulo() + ": " + vivaLaGloria.getTotalReproducoes());
+        americanIdiot.imprimeFichaTecnica();
+        americanIdiot.mostrarMusicas();
+
+        Podcast entrevista = new Podcast();
+        entrevista.criarPodcast("Titulo do ep", 35, "Apresentador", 4, "Tema do ep", "Convidado", "Descrição do episodio");
+        entrevista.exibeFichaTecnica();
+
+        eastJesusNowhere.avaliar(5.0);
+        eastJesusNowhere.avaliar(4.0);
+        eastJesusNowhere.avaliar(4.5);
+        eastJesusNowhere.avaliar(4.6);
+        eastJesusNowhere.avaliar(4.7);
+        System.out.println(eastJesusNowhere.getTitulo());
+        eastJesusNowhere.verificarAvaliacao();
     }
 }
