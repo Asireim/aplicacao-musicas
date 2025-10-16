@@ -26,7 +26,7 @@ public class Principal {
         Musica vivaLaGloria = new Musica();
         vivaLaGloria.setTitulo("¡Viva La Gloria!");
         vivaLaGloria.setDuracaoEmMinutos(3);
-        vivaLaGloria.setGenero("Rock");
+        vivaLaGloria.setGenero("Alterativa/indie");
         vivaLaGloria.setAlbum(centuryBreakdown);
         centuryBreakdown.adicionaMusica(vivaLaGloria);
         vivaLaGloria.curtir();
@@ -34,7 +34,12 @@ public class Principal {
         for (int i = 0; i < 6; i++) {
             vivaLaGloria.reproduzir();
         }
-        System.out.println("A música " + vivaLaGloria.getTitulo() + " possui " + vivaLaGloria.getCurtidas() + " curtidas e " + lastOfAmericanGirls.getTotalReproducoes() + " reproduções.");
+        System.out.println("A música " + vivaLaGloria.getTitulo() + " possui " + vivaLaGloria.getCurtidas() + " curtidas e " + vivaLaGloria.getTotalReproducoes() + " reproduções.");
+
+        Musica lastNightOnEarth = new Musica();
+        lastNightOnEarth.setTitulo("Last Night On Earth");
+        lastNightOnEarth.setDuracaoEmMinutos(4);
+        lastNightOnEarth.setGenero("Pop rock");
 
         System.out.println("Ficha técnica do álbum " + centuryBreakdown.getTitulo() + ": ");
         centuryBreakdown.imprimeFichaTecnica();

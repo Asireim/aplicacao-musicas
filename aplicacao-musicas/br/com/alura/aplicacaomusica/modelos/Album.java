@@ -29,15 +29,11 @@ public class Album {
 
     public void adicionaMusica(Musica musica) {
         this.musicas.add(musica);
-        this.generos.add(musica.getGenero());
-//        for (int i = 0; i < generos.size(); i++) {
-//            if (generos.get(i).equals(musica.getGenero())) {
-//                System.out.println("Genero já existente.");
-//            } else {
-//                System.out.println("genero adicionado");
-//                this.generos.add(musica.getGenero());
-//            }
-//        }
+        if (this.generos.contains(musica.getGenero().toLowerCase())) {
+            System.out.println("Genero já existente.");
+        } else {
+            this.generos.add(musica.getGenero().toLowerCase());
+        }
         this.duracaoEmMinutos += musica.getDuracaoEmMinutos();
     }
 
