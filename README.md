@@ -1,6 +1,6 @@
 ### Aplicação de músicas
 
-*Projeto inicialmente inspirado no desafio final proposto no curso:*
+*Projeto inicialmente inspirado no desafio final proposto no curso:* <br>
 [Curso Alura: Java: aplicando a Orientação a Objetos] (https://cursos.alura.com.br/course/java-aplicando-orientacao-objetos)
 
 ***Nesta aplicação, iniciei realizando o desafio proposto pelo curso da Alura, a fim de implementar os principais aprendizados que reuni durante a execução do curso.*** <br>
