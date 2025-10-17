@@ -12,5 +12,5 @@
 - *Herança*
 - *Polimorfismo*
 - *Classes, interfaces*
-- *Modificadores de acesso (public, private, protected), métodos de leitura e modificação dos atributos (getters e setters)*
+- *Modificadores de acesso (public, private, protected), métodos de leitura e modificação dos atributos (getters e setters), construtores das classes*
 - *Boas práticas: divisão do código em pacotes, convenção de nomes para os pacotes*
