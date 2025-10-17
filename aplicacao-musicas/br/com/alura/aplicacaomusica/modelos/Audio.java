@@ -1,30 +1,23 @@
 package br.com.alura.aplicacaomusica.modelos;
 
 public class Audio implements Playable, Rateable {
-    private String titulo;
-    private int duracaoEmMinutos;
+    protected String titulo;
+    protected int duracaoEmMinutos;
     private int totalReproducoes;
     private double estrelas;
     private int avaliacoes;
 
-    protected void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public Audio(String nome, int duracaoEmMinutos) {
+        this.titulo = nome;
+        this.duracaoEmMinutos = duracaoEmMinutos;
     }
 
     public String getTitulo() {
         return this.titulo;
     }
 
-    protected void setDuracaoEmMinutos(int duracaoEmMinutos) {
-        this.duracaoEmMinutos = duracaoEmMinutos;
-    }
-
     public int getDuracaoEmMinutos() {
-        return this.duracaoEmMinutos;
-    }
-
-    public int getTotalReproducoes() {
-        return this.totalReproducoes;
+        return duracaoEmMinutos;
     }
 
     @Override
@@ -32,6 +25,14 @@ public class Audio implements Playable, Rateable {
         for (int i = 0; i < vezes; i++) {
             this.totalReproducoes++;
         }
+    }
+
+    public int getTotalReproducoes() {
+        return this.totalReproducoes;
+    }
+
+    public void verTotalReproducoes() {
+        System.out.printf("Total de reproduções da música %s: %d%n", this.titulo, this.totalReproducoes);
     }
 
     @Override
@@ -43,6 +44,6 @@ public class Audio implements Playable, Rateable {
     @Override
     public void verificarAvaliacao() {
         double avaliacao = (this.estrelas / this.avaliacoes);
-        System.out.printf("Avaliação: %.1f estrelas", avaliacao);
+        System.out.printf("Avaliação: %.1f estrelas%n", avaliacao);
     }
 }

@@ -13,32 +13,14 @@ public class Album implements Rateable {
     private List<Musica> musicas = new ArrayList<>();
     private List<String> generos = new ArrayList<>();
 
-    protected void setTitulo(String titulo) {
+    public Album(String titulo,String artista, int anoLancamento) {
         this.titulo = titulo;
+        this.artista = artista;
+        this.anoLancamento = anoLancamento;
     }
 
     public String getTitulo() {
         return this.titulo;
-    }
-
-    public String getArtista() { return this.artista; }
-
-    public int getAnoLancamento() { return this.anoLancamento; }
-
-    public int getDuracaoEmMinutos() { return this.duracaoEmMinutos; }
-
-    protected void setArtista(String artista) {
-        this.artista = artista;
-    }
-
-    protected void setAnoLancamento(int anoLancamento) {
-        this.anoLancamento = anoLancamento;
-    }
-
-    public void criarAlbum(String titulo,String artista, int anoLancamento) {
-        this.setTitulo(titulo);
-        this.setArtista(artista);
-        this.setAnoLancamento(anoLancamento);
     }
 
     public void adicionaMusica(Musica musica) {
@@ -51,6 +33,16 @@ public class Album implements Rateable {
         this.duracaoEmMinutos += musica.getDuracaoEmMinutos();
     }
 
+    private int getReproducoes() {
+        int reproducoes = 0;
+
+        for (int i = 0; i < musicas.size(); i++) {
+            reproducoes += musicas.get(i).getTotalReproducoes();
+        }
+
+        return reproducoes;
+    }
+
     public void imprimeFichaTecnica() {
         System.out.printf("""
                         Ficha técnica do álbum %s:
@@ -59,15 +51,16 @@ public class Album implements Rateable {
                         Artista: %s
                         Ano de lançamento: %d
                         Duração total em minutos: %d
+                        Total de reproduções do álbum: %d
                         Gêneros do álbum:
-                        """, this.getTitulo(), this.getTitulo(), this.getArtista(), this.getAnoLancamento(), this.getDuracaoEmMinutos());
+                        """, this.getTitulo(), this.getTitulo(), this.artista, this.anoLancamento, this.duracaoEmMinutos, this.getReproducoes());
         for (int i = 0; i < generos.size(); i++) {
             System.out.println(generos.get(i));
         }
     }
 
     public void mostrarMusicas() {
-        System.out.printf("Músicas do álbum %s:\n", this.getTitulo());
+        System.out.printf("Músicas do álbum %s:%n", this.getTitulo());
         for (int i = 0; i < musicas.size(); i++) {
             System.out.println(musicas.get(i).getTitulo());
         }
